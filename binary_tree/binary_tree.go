@@ -39,6 +39,23 @@ func (n *Node) Insert(value int, data string) error {
 	return nil
 }
 
+func (n *Node) Find(value int) (string, bool) {
+	if n == nil {
+		return "", false
+	}
+
+	switch {
+	case s == n.Value:
+		return n.Data, true
+
+	case value < n.Value:
+		return n.Left.Find(value)
+
+	case value > n.Value:
+		return n.Right.Find(value)
+	}
+}
+
 func main() {
 	n := Node{Value: 5, Data: "data"}
 	n.Insert(6, "sixes")
