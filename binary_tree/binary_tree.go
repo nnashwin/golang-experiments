@@ -45,7 +45,7 @@ func (n *Node) Find(value int) (string, bool) {
 	}
 
 	switch {
-	case s == n.Value:
+	case value == n.Value:
 		return n.Data, true
 
 	case value < n.Value:
@@ -54,12 +54,12 @@ func (n *Node) Find(value int) (string, bool) {
 	case value > n.Value:
 		return n.Right.Find(value)
 	}
+	return "", false
 }
 
 func main() {
 	n := Node{Value: 5, Data: "data"}
 	n.Insert(6, "sixes")
-	log.Println(n.Right.Value)
-	log.Println(reflect.TypeOf(n.Right.Value))
-
+	n.Insert(7, "sevens")
+	n.Insert(4, "fours")
 }
