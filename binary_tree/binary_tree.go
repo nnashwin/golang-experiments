@@ -3,7 +3,6 @@ package main
 import (
 	"errors"
 	"log"
-	"reflect"
 )
 
 type Node struct {
@@ -60,6 +59,6 @@ func (n *Node) Find(value int) (string, bool) {
 func main() {
 	n := Node{Value: 5, Data: "data"}
 	n.Insert(6, "sixes")
-	n.Insert(7, "sevens")
-	n.Insert(4, "fours")
+	six, _ := n.Find(6)
+	log.Println(six)
 }
