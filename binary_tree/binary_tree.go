@@ -50,10 +50,9 @@ func (n *Node) Find(value int) (string, bool) {
 	case value < n.Value:
 		return n.Left.Find(value)
 
-	case value > n.Value:
+	default:
 		return n.Right.Find(value)
 	}
-	return "", false
 }
 
 func main() {
@@ -61,4 +60,5 @@ func main() {
 	n.Insert(6, "sixes")
 	six, _ := n.Find(6)
 	log.Println(six)
+	log.Println(n.Right)
 }
